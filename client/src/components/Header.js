@@ -1,19 +1,16 @@
 //components
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { makeStyles } from '@mui/styles'
+import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core';
 
 const useStyle = makeStyles({
     component: {
-        background: '#FFFFFF',
+        background: 'black',
         color: 'black'
     },
     container: {
         justifyContent: 'center',
         '&  >*': {
             padding: 20,
-            color: 'black',
+            color: '#FFFFFF',
             textDecoration: 'none'
         }
     }
