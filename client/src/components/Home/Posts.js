@@ -1,6 +1,9 @@
-function Posts() {
+import Post from './Post';
+
+const Posts = () =>   {
+
   return (
-    <p>Posts</p>
+    <Post />
   )
 }
 
