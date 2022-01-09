@@ -1,1 +1,1 @@
-# my-blog
+Blogging website using MERN.
