@@ -1,5 +1,0 @@
-FRONTEND
---------------------------
-$ npx create-react-app client[Frontend Folder]
-$ npm install @mui/material @emotion/react @emotion/styled
-$ npm install @material-ui/core [For styling my app]
