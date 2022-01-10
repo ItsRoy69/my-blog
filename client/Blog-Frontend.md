@@ -29,3 +29,7 @@ to
 
 <Route path='/welcome' element={<Home/>} />
 ```
+
+```
+$ npm install @material-ui/icons[For installing icons]
+```

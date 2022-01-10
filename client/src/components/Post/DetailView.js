@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, makeStyles } from '@material-ui/core';
+import { Delete, Edit } from '@material-ui/icons';
 
 const useStyle = makeStyles({
     container: {
@@ -19,6 +20,10 @@ const DetailView =() =>  {
   return (
     <Box className={classes.container}>
       <img src={url} alt="banner" className={classes.image} />
+      <Box>
+        <Edit />
+        <Delete />
+      </Box>
     </Box>
   )
 }
