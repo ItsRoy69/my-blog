@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home/Home';
 import DetailView from './components/Post/DetailView';
+import CreateView from './components/Post/CreateView';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
          <Routes>
            <Route exact path='/' element={<Home/>} />
            <Route exact path='/details' element={<DetailView/>} />
+           <Route exact path='/create' element={<CreateView/>} />
         </Routes>
       </Box>
 
