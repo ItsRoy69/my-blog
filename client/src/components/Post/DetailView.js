@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, makeStyles, Typography } from '@material-ui/core';
 import { Delete, Edit } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
+
 
 const useStyle = makeStyles(theme =>({
     container: {
@@ -47,7 +49,7 @@ const DetailView =() =>  {
     <Box className={classes.container}>
       <img src={url} alt="banner" className={classes.image} />
       <Box className={classes.icons}>
-        <Edit className={classes.icon} />
+        <Link to = '/update'><Edit className={classes.icon} /></Link>
         <Delete className={classes.icon} color="error"/>
       </Box>
       <Typography className={classes.heading}> Title of Blog </Typography>
