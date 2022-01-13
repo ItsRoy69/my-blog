@@ -26,3 +26,8 @@ Thus we need to write in package.json:
 },
 
 ```
+
+```
+$ npm i mongoose [Install the package inside server folder]
+
+```
