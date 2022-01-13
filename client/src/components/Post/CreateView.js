@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Box, makeStyles, Button, FormControl, InputBase, TextareaAutosize } from '@material-ui/core';
 import { AddCircle } from '@material-ui/icons';
 
@@ -34,10 +35,24 @@ const useStyle = makeStyles(theme => ({
     }
 }));
 
+const initialValues = {
+    title: '',
+    description: '',
+    picture: '',
+    username: '',
+    categories: '',
+    createdDate: new Date()
+}
 
 const CreateView = () => {
   const classes = useStyle();
   const url = 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
+
+  const [post, setPost] = useState(initialValues)
+
+  const handleChange = (e) => {
+        setPost({ ...post, [e.target.name]: e.target.value });
+    }
 
     return (
       <Box className={classes.container}>
@@ -45,8 +60,11 @@ const CreateView = () => {
           <FormControl className={classes.title}>
             <AddCircle  fontSize="large" color="action"/>
 
-            <InputBase placeholder="Title" className={classes.textfield}/>
-
+            <InputBase
+                onChange={(e) => handleChange(e)}
+                placeholder="Title"
+                className={classes.textfield}
+            />
             <Button variant="contained" color="primary">Publish</Button>
           </FormControl>
 
@@ -54,7 +72,8 @@ const CreateView = () => {
                 rowsMin={5}
                 placeholder="Tell your story..."
                 className={classes.textarea}
-                name='description'                
+                onChange={(e) => handleChange(e)}
+                name='description'
             />
 
       </Box>
