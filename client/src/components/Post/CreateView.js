@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Box, makeStyles, Button, FormControl, InputBase, TextareaAutosize } from '@material-ui/core';
 import { AddCircle } from '@material-ui/icons';
 
+import { createPost } from '../../service/api';
+
 const useStyle = makeStyles(theme => ({
     container: {
         margin: '50px 100px',
@@ -54,6 +56,10 @@ const CreateView = () => {
         setPost({ ...post, [e.target.name]: e.target.value });
     }
 
+    const savePost = async () => {
+        await createPost(post);        
+    }
+
     return (
       <Box className={classes.container}>
           <img src={url} alt="banner" className={classes.image} />
@@ -65,7 +71,7 @@ const CreateView = () => {
                 placeholder="Title"
                 className={classes.textfield}
             />
-            <Button variant="contained" color="primary">Publish</Button>
+            <Button onClick={()  => savePost()} variant="contained" color="primary">Publish</Button>
           </FormControl>
 
           <TextareaAutosize

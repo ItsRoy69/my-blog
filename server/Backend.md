@@ -31,3 +31,18 @@ Thus we need to write in package.json:
 $ npm i mongoose [Install the package inside server folder]
 
 ```
+
+```
+$ npm i axios [To call the APIs in Frontend we need to install axios inside client folder]
+
+```
+
+```
+$ npm i cors [In server folder]
+
+```
+
+```
+$ npm i body-parser
+
+```
