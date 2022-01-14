@@ -41,8 +41,8 @@ const initialValues = {
     title: '',
     description: '',
     picture: '',
-    username: '',
-    categories: '',
+    username: 'Roy',
+    categories: 'All',
     createdDate: new Date()
 }
 
@@ -57,7 +57,7 @@ const CreateView = () => {
     }
 
     const savePost = async () => {
-        await createPost(post);        
+        await createPost(post);
     }
 
     return (
@@ -70,6 +70,7 @@ const CreateView = () => {
                 onChange={(e) => handleChange(e)}
                 placeholder="Title"
                 className={classes.textfield}
+                name="title"
             />
             <Button onClick={()  => savePost()} variant="contained" color="primary">Publish</Button>
           </FormControl>
