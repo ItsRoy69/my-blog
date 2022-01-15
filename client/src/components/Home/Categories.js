@@ -26,7 +26,9 @@ const Categories = () =>  {
       <Table className={classes.table}>
         <TableHead>
             <TableCell>
-                    All Categories
+                <Link to={`/`} className={classes.link}>
+                  All Categories
+                </Link>
             </TableCell>
         </TableHead>
         <TableBody>
@@ -34,7 +36,9 @@ const Categories = () =>  {
             categories.map(category => (
               <TableRow>
                 <TableCell>
-                  {category}
+                  <Link to={`/?category=${category}`} className={classes.link}>
+                    {category}
+                  </Link>
                 </TableCell>
               </TableRow>
             ))

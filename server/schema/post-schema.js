@@ -1,3 +1,9 @@
+//^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+//^ NEW POSTING OF BLOG
+//^ Here this is used to fetch a single post from the DB with the help of it's ID
+//^ Then edit that note with the help of the newly added/edited Data
+//^ If created then success = true
+
 import mongoose from 'mongoose';
 
 const PostSchema = mongoose.Schema({

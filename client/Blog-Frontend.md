@@ -42,3 +42,5 @@ const navigate = useNavigate();
 navigate('/home');
 
 ```
+
+In DetailView.js ```match.params.id``` is older version of react-router-dom so we use ```useParams()```
