@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://localhost:8000';
+const URL = 'http://localhost:8000';
 
 export const createPost = async (post) => {
     try {

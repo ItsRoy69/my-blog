@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Box, makeStyles, Button, FormControl, InputBase, TextareaAutosize } from '@material-ui/core';
 import { AddCircle } from '@material-ui/icons';
+import { useNavigate } from 'react-router-dom';
 
 import { createPost } from '../../service/api';
 
@@ -49,15 +50,17 @@ const initialValues = {
 const CreateView = () => {
   const classes = useStyle();
   const url = 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
+  const navigate = useNavigate();
 
-  const [post, setPost] = useState(initialValues)
+  const [post, setPost] = useState(initialValues);
 
   const handleChange = (e) => {
         setPost({ ...post, [e.target.name]: e.target.value });
     }
 
-    const savePost = async () => {
-        await createPost(post);
+  const savePost = async () => {
+       await createPost(post);
+       navigate('/');
     }
 
     return (

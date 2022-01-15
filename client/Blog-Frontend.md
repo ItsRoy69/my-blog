@@ -33,3 +33,12 @@ to
 ```
 $ npm install @material-ui/icons[For installing icons]
 ```
+
+In react-router-dom v6 useHistory() is replaced by useNavigate(). Thus
+
+```
+import { useNavigate } from 'react-router-dom';
+const navigate = useNavigate();
+navigate('/home');
+
+```
