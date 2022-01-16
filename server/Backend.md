@@ -46,3 +46,17 @@ $ npm i cors [In server folder]
 $ npm i body-parser
 
 ```
+
+```
+$ npm install multer[node.js middleware for handling multipart/form-data, which is primarily used for uploading files for eg. images]
+
+```
+
+```
+$ npm i multer-gridfs-storage [Storage engine for Multer to store uploaded files directly to MongoDb.]
+
+```
+```
+$ npm i gridfs-stream [Easily stream files to and from MongoDB GridFS.]
+
+```

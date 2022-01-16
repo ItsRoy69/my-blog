@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, makeStyles, Button, FormControl, InputBase, TextareaAutosize } from '@material-ui/core';
 import { AddCircle } from '@material-ui/icons';
 import { useNavigate } from 'react-router-dom';
 
-import { createPost } from '../../service/api';
+import { createPost, uploadFile } from '../../service/api';
 
 const useStyle = makeStyles(theme => ({
     container: {
@@ -53,21 +53,46 @@ const CreateView = () => {
   const navigate = useNavigate();
 
   const [post, setPost] = useState(initialValues);
+  const [file, setFile] = useState('');
 
-  const handleChange = (e) => {
-        setPost({ ...post, [e.target.name]: e.target.value });
-    }
+  useEffect(() => {
+      const getImage = async () => {
+          if(file) {
+              const data = new FormData();
+              data.append("name", file.name);
+              data.append("file", file);
 
-  const savePost = async () => {
+              const image = await uploadFile(data);
+              post.picture = image.data;
+          }
+      }
+      getImage();
+    }, [file])
+
+
+   const savePost = async () => {
        await createPost(post);
        navigate('/');
     }
+
+    const handleChange = (e) => {
+          setPost({ ...post, [e.target.name]: e.target.value });
+      }
+
 
     return (
       <Box className={classes.container}>
           <img src={url} alt="banner" className={classes.image} />
           <FormControl className={classes.title}>
-            <AddCircle  fontSize="large" color="action"/>
+            <label htmlFor="fileInput">
+              <AddCircle  fontSize="large" color="action"/>
+            </label>
+            <input
+                    type="file"
+                    id="fileInput"
+                    style={{ display: "none" }}
+                    onChange={(e) => setFile(e.target.files[0])}
+                />
 
             <InputBase
                 onChange={(e) => handleChange(e)}
@@ -79,7 +104,7 @@ const CreateView = () => {
           </FormControl>
 
           <TextareaAutosize
-                rowsMin={5}
+                minRows={5}
                 placeholder="Tell your story..."
                 className={classes.textarea}
                 onChange={(e) => handleChange(e)}

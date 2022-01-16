@@ -25,11 +25,13 @@ const useStyles = makeStyles({
   },
   heading: {
       fontSize: 18,
-      fontWeight: 600
+      fontWeight: 600,
+      textAlign: 'center'
   },
   detail: {
       fontSize: 14,
-      wordBreak: 'break-word'
+      wordBreak: 'break-word',
+      textAlign: 'center'
   }
 })
 
