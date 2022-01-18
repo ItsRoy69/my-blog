@@ -49,11 +49,14 @@ const initialValues = {
 
 const CreateView = () => {
   const classes = useStyle();
-  const url = 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
   const navigate = useNavigate();
 
   const [post, setPost] = useState(initialValues);
   const [file, setFile] = useState('');
+  const [image, setImage] = useState('');
+
+  const url = post.picture ? post.picture : 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
+
 
   useEffect(() => {
       const getImage = async () => {
@@ -64,6 +67,7 @@ const CreateView = () => {
 
               const image = await uploadFile(data);
               post.picture = image.data;
+              setImage(image.data);
           }
       }
       getImage();
